@@ -76,7 +76,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                            <input type="submit" value="Enviar" class="btn btn-outline-success">
+                            <input type="submit"  value="Enviar" class="btn btn-outline-success">
                             <input type="reset" value="Resetear" class="btn btn-outline-danger ">
     
                         </div>
@@ -85,18 +85,81 @@
 
                 
     </form>
-    Nombre:  <?php isset($_POST["nombre"]) ? print $_POST["nombre"] : ""; ?><br>
-    Apellido: <?php isset($_POST["apellido"]) ? print $_POST["apellido"] : ""; ?><br>
-    Identificación: <?php isset($_POST["id"]) ? print $_POST["id"] : ""; ?><br>
-    Tipo de Biologico: <?php isset($_POST["tipo"]) ? print $_POST["tipo"] : ""; ?><br>
-    Fecha primera dosis: <?php isset($_POST["fecha_ini"]) ? print $_POST["fecha_ini"] : ""; ?><br>
-    Fecha segunda dosis: <?php isset($_POST["fecha_fin"]) ? print $_POST["fecha_fin"] : ""; ?><br>
     
+ 
+
     <?php
-   /*  $contenido="$nombre.";".$apellido";
-    $archivo=fopen("recibido/datos_vac.txt","w");
-    fwrite($archivo,$contenido); */
-   ?>
+        
+        $identficacion = isset($_POST["id"]) ? $_POST["id"] : "";
+        $nombre = isset($_POST["nombre"]) ? $_POST['nombre'] : "";
+        $apellido = isset($_POST["apellido"]) ? $_POST["apellido"] : "";
+        $biologico = isset($_POST["tipo"]) ? $_POST["tipo"] : "";
+        $fechaini = isset($_POST["fecha_ini"]) ? $_POST["fecha_ini"] : "";
+        $fechafin = isset($_POST["fecha_fin"]) ? $_POST["fecha_fin"] : "";   
+    
+        $contenido="\n$identficacion;$nombre;$apellido;$biologico;$fechaini;$fechafin;";
+        
+        if ($identficacion && $nombre && $apellido && $biologico && $fechaini && $fechafin != '') {
+            $archivo=fopen("datos_vac.txt","a");
+            fwrite($archivo,$contenido); 
+            fclose($archivo);
+            
+        }
+        else {
+            
+        }  
+    ?>
+
+
+<?php
+
+    $archivo = fopen('datos_vac.txt','r');
+    if (!$archivo) {echo 'ERROR: No ha sido posible abrir el archivo.'; exit;}
+
+    echo '<br><table class="table table-success table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Biologico</th>
+        <th scope="col">Primera Dosis</th>
+        <th scope="col">Segunda Dosis</th>
+      </tr>
+    </thead>
+    <tbody>';
+    $loop = 0; // contador de líneas
+    while (!feof($archivo)) { 
+    $linea = fgets($archivo); // guardamos toda la línea en $linea como un string   
+    // agregamos la línea a la matriz $field
+    $field[$loop] = explode (';', $linea);// dividimos $line en sus celdas, separadas por el caracter ;
+    // generamos la salida HTML
+    echo '
+      <tr>
+        <td>'.$field[$loop][0].'</td>
+        <td>'.$field[$loop][1].'</td>
+        <td>'.$field[$loop][2].'</td>
+        <td>'.$field[$loop][3].'</td>
+        <td>'.$field[$loop][4].'</td>
+        <td>'.$field[$loop][5].'</td>
+      </tr>'; 
+      $loop++;  //loop  aumenta hasta que se llegue al final del archivo
+    }
+    echo '               
+    </tbody>
+   </table>';
+    fclose($archivo);
+    
+
+?>
+
+
+
+<script>
+    if (window.history.replaceState) { // verificamos disponibilidad
+    window.history.replaceState(null, null, window.location.href);
+    }
+</script>
 
    
 </body>

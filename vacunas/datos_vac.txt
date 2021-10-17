@@ -1,0 +1,4 @@
+98381488;gustavo;delgado;Moderna;2021-09-29;2021-10-26;
+1098765432;Deiby;Perez;Johnson & Johnson;2021-10-26;2021-10-30;
+1087654324;Carlos;Lopez;Sputnik V;2021-10-30;2021-12-14;
+108766222;Carlos;salazar;Pfizer;2021-10-04;2021-12-15;
