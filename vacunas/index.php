@@ -63,8 +63,7 @@
                         <div class="col-6">
                          <label for="date">Primera dosis</label> <br>
                          <input type="date" name="fecha_ini" id="fecha"> <br> <br>
-    
-                        </div>
+                         </div> 
                         <div class="col">
                             <label for="date">Segunda dosis</label> <br>
                             <input type="date" name="fecha_fin" id="fecha"> <br> <br>
