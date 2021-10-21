@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos Vacunación</title>
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -41,9 +43,8 @@
                 <div class="row">
                     <div class="col-6">
                         <label for="password">Identificación:</label>
-                        <input name="id" type="id" name="id" id="contraseña"
-                            class="form-control"> <br> <br>
-
+                        <input name="id" type="id" name="id" id="contraseña" class="form-control"> 
+                        <br> <br> 
                     </div>
                     <div class="col-3">
                         <label for="Pais" class="form-label">Tipo de Biologico</label>
@@ -54,29 +55,45 @@
                             <option value="Johnson & Johnson">Johnson & Johnson</option>
                             <option value="Sputnik V">Sputnik V</option>
                         </select>
+                        <br> 
                     </div>
                 </div>
             </div>
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-6">
-                         <label for="date">Primera dosis</label> <br>
-                         <input type="date" name="fecha_ini" id="fecha"> <br> <br>
+                        <div class="col-6 form-group">
+                            <label for="date">Primera dosis:</label> <br>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                <i class="fa-solid fa-abacus"></i>
+                                <div class="input-group-text">🗓</div>
+                                </div>
+                                <input type="date" name="fecha_ini" id="fecha">                            </div>
+                            <br> <br>
                          </div> 
-                        <div class="col">
-                            <label for="date">Segunda dosis</label> <br>
-                            <input type="date" name="fecha_fin" id="fecha"> <br> <br>
-                       
-                        </div>     
+                        <div class="col-3 form-group">
+                            <label for="date">Segunda dosis:</label> <br>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                <i class="fa-solid fa-abacus"></i>
+                                <div class="input-group-text">🗓</div>
+                                </div>
+                                <input type="date" class="form-control" id="inlineFormInputGroup" name="fecha_fin" id="fecha"> <br> <br>
+                            </div>
+                            <br> <br>
+                        </div>  
+                        
+                      
+ 
                     </div>
 
                 </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                            <input type="submit"  value="Enviar" class="btn btn-outline-success">
-                            <input type="reset" value="Resetear" class="btn btn-outline-danger ">
+                            <input type="submit"  value="✅ Enviar" class="btn btn-outline-success">
+                            <input type="reset" value="❌ Resetear" class="btn btn-outline-danger ">
     
                         </div>
                     
