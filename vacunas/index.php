@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos Vacunación</title>
 
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -19,6 +18,7 @@
     
 
     <form method="post" action="index.php" enctype="multipart/form-data">
+ 
 
         <div class="container">
             <div class="row">
@@ -27,8 +27,7 @@
                 <div class="col-6">
                     <label for="nombre ">Nombre:</label>
                     <input name="nombre" type="text" name="nombre" id="nombre" required class="form-control"> <br>
-                    <br>
-                    
+                    <br>                
 
                 </div>
                 <div class="col-6">
@@ -43,12 +42,12 @@
                 <div class="row">
                     <div class="col-6">
                         <label for="password">Identificación:</label>
-                        <input name="id" type="id" name="id" id="contraseña" class="form-control"> 
+                        <input name="id" required pattern="[0-9]{10}" type="text"  name="id" id="contraseña" class="form-control"> 
                         <br> <br> 
                     </div>
                     <div class="col-3">
                         <label for="Pais" class="form-label">Tipo de Biologico</label>
-                        <select class="form-select" name="tipo">
+                        <select class="form-select" required name="tipo">
                             <option selected value="Astrazeneca">Astrazeneca</option>
                             <option value="Pfizer">Pfizer</option>
                             <option value="Moderna">Moderna</option>
@@ -69,7 +68,7 @@
                                 <i class="fa-solid fa-abacus"></i>
                                 <div class="input-group-text">🗓</div>
                                 </div>
-                                <input type="date" name="fecha_ini" id="fecha">                            </div>
+                                <input type="date" required name="fecha_ini" id="fecha">                            </div>
                             <br> <br>
                          </div> 
                         <div class="col-3 form-group">
@@ -79,7 +78,7 @@
                                 <i class="fa-solid fa-abacus"></i>
                                 <div class="input-group-text">🗓</div>
                                 </div>
-                                <input type="date" class="form-control" id="inlineFormInputGroup" name="fecha_fin" id="fecha"> <br> <br>
+                                <input type="date" required class="form-control" id="inlineFormInputGroup" name="fecha_fin" id="fecha"> <br> <br>
                             </div>
                             <br> <br>
                         </div>  
@@ -175,6 +174,7 @@
     if (window.history.replaceState) { // verificamos disponibilidad
     window.history.replaceState(null, null, window.location.href);
     }
+
 </script>
 
    
