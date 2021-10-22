@@ -176,6 +176,11 @@
     }
 
 </script>
+<style>
+    body{
+        background:#f0edec;
+    }
+</style>
 
    
 </body>
